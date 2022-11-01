@@ -23,5 +23,11 @@ public class TestDocSearch {
     String expect = String.format("Found 3 paths:\n%s\n%s\n%s", path1, path2, path3);
     assertEquals(expect, h.handleRequest(rootPath));
 	}
+	@Test 
+	public void testSearchCount() throws URISyntaxException, IOException {
+    Handler h = new Handler("./technical/");
+    URI rootPath = new URI("http://localhost/search?q=taxation");
+    assertTrue(h.handleRequest(rootPath).startsWith("Found 3 paths"));
+	}
 }
 
